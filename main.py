@@ -30,13 +30,18 @@ color_list = [(246, 242, 235), (247, 240, 244), (239, 242, 247), (237, 245, 240)
 # This changes the angle at which the painter moves.
 painter.setheading(220)
 painter.penup()
-painter.backward(250)
-# painter.forward(250)
+painter.forward(300)
+painter.setheading(0)
+
 for _ in range(10):
     painter.pendown()
     painter.dot(20, random.choice(color_list))
     painter.penup()
     painter.forward(50)
+
+painter.setheading(90)
+painter.forward(50)
+painter.setheading(180)
 # When we run it now it paints a dot and quickly flashes away. So we create a screen object
 # From the turtle module, and the class is called 'Screen', and then we change the behaviour of our screen.
 screen = turtle.Screen()
