@@ -26,11 +26,18 @@ color_list = [(246, 242, 235), (247, 240, 244), (239, 242, 247), (237, 245, 240)
 # because we are using the rgb colour which has the rgb values, between 0-255 we first have to
 #  get the turtle module to change its color mode to 255. Check above.
 # size 20 and random colour below.
-painter.dot(20, random.choice(color_list))
+for _ in range(10):
+    painter.penup()
+    painter.backward(3)
+    painter.pendown()
+    painter.dot(20, random.choice(color_list))
+    painter.penup()
+    painter.forward(50)
 # When we run it now it paints a dot and quickly flashes away. So we create a screen object
 # From the turtle module, and the class is called 'Screen', and then we change the behaviour of our screen.
 screen = turtle.Screen()
 screen.exitonclick()
+# So it only disappears on click.
 
 
 
