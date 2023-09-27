@@ -17,6 +17,7 @@ import random
 # Inside the turtle module there's a Turtle class.
 turtle.colormode(255)
 painter = turtle.Turtle()
+painter.speed("fastest")
 color_list = [(246, 242, 235), (247, 240, 244), (239, 242, 247), (237, 245, 240), (212, 149, 95), (215, 80, 62), (47, 94, 142), (231, 218, 92), (148, 66, 91), (22, 27, 40), (155, 73, 60), (122, 167, 195), (40, 22, 29), (39, 19, 15), (209, 70, 89), (192, 140, 159), (39, 131, 91), (125, 179, 141), (75, 164, 96), (229, 169, 183), (15, 31, 22), (51, 55, 102), (233, 220, 12), (159, 177, 54), (99, 44, 63), (35, 164, 196), (234, 171, 162), (105, 44, 39), (164, 209, 187), (151, 206, 220)]
 
 # 10 by 10, dot size 20, spaced around 50 spaces.
@@ -32,16 +33,23 @@ painter.setheading(220)
 painter.penup()
 painter.forward(300)
 painter.setheading(0)
+number_of_dots = 100
 
-for _ in range(10):
+for dot_count in range(1, number_of_dots + 1):
     painter.pendown()
     painter.dot(20, random.choice(color_list))
     painter.penup()
     painter.forward(50)
+    if dot_count % 10 == 0:
+        # This would mean it's a multiple of 10, so whenever the dot size gets to 10, it will start
+        # the new line.
+        painter.setheading(90)
+        painter.forward(50)
+        painter.setheading(180)
+        painter.forward(500)
+        painter.setheading(0)
 
-painter.setheading(90)
-painter.forward(50)
-painter.setheading(180)
+
 # When we run it now it paints a dot and quickly flashes away. So we create a screen object
 # From the turtle module, and the class is called 'Screen', and then we change the behaviour of our screen.
 screen = turtle.Screen()
