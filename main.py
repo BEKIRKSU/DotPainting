@@ -26,9 +26,13 @@ color_list = [(246, 242, 235), (247, 240, 244), (239, 242, 247), (237, 245, 240)
 # because we are using the rgb colour which has the rgb values, between 0-255 we first have to
 #  get the turtle module to change its color mode to 255. Check above.
 # size 20 and random colour below.
+
+# This changes the angle at which the painter moves.
+painter.setheading(220)
+painter.penup()
+painter.backward(250)
+# painter.forward(250)
 for _ in range(10):
-    painter.penup()
-    painter.backward(3)
     painter.pendown()
     painter.dot(20, random.choice(color_list))
     painter.penup()
